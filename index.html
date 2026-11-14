@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roventure | Book adventure and experiences in India with zero waiting</title>
+  <meta name="description" content="Book timed slots for adventure sports, museums, theme parks, spa therapies and farm tours across India. Licensed operators, certified staff and insurance on every booking.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Book the hour.<br>Skip the queue.</h1>
+        <p class="lead">Pick an experience anywhere in India, choose your arrival window, and walk
+          straight in. Every operator is licensed, every guide is certified, and insurance is part
+          of every booking.</p>
+        <form class="search" action="explore.html">
+          <input name="q" placeholder="Try kayaking, museum or Jaipur" aria-label="Search experiences">
+          <select name="cat" id="heroCat" aria-label="Category">
+            <option value="">All categories</option>
+          </select>
+          <button class="btn gold">Find experiences</button>
+        </form>
+      </div>
+      <aside class="ticket" aria-label="Example of a booking">
+        <div class="t-main">
+          <p class="t-small">Example booking</p>
+          <p class="t-title">Backwater kayaking at dawn</p>
+          <p>Alappuzha, Kerala</p>
+          <p class="t-win">Arrive any time between <b>6:30 and 7:30 AM</b></p>
+        </div>
+        <div class="t-stub"><p>Wait</p><b>0</b><p>min</p></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>What do you feel like doing?</h2>
+      <div id="cats" class="cats"></div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <h2>Popular right now</h2>
+      <div id="featured" class="grid"><p class="empty">Loading experiences…</p></div>
+      <a class="btn alt" href="explore.html">See all experiences</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap two">
+      <div>
+        <h2>How a timed slot works</h2>
+        <ol class="steps">
+          <li><b>Choose your experience.</b> Filter by state, terrain, price or women instructors.</li>
+          <li><b>Pick an arrival window.</b> Each window has a fixed number of spots, so we only
+            sell what the operator can handle.</li>
+          <li><b>Walk in any time inside it.</b> Show your booking code and start. No counter, no queue.</li>
+        </ol>
+      </div>
+      <div>
+        <h2>What every booking includes</h2>
+        <ul class="ticks">
+          <li>A licensed operator, checked by our team before listing</li>
+          <li>Certified guides and instructors</li>
+          <li>Insurance cover at ₹29 per person, shown clearly at checkout</li>
+          <li>Free cancellation up to 24 hours before your slot</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <h2>Run an activity, museum or tour?</h2>
+      <p>List it on Roventure and fill your quiet hours with visitors who have already booked.</p>
+      <a class="btn gold" href="partners.html">See how onboarding works</a>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script>
+(async () => {
+  await renderChrome();
+
+  document.getElementById("heroCat").insertAdjacentHTML("beforeend",
+    CATS.map(c => `<option>${esc(c[0])}</option>`).join(""));
+
+  document.getElementById("cats").innerHTML = CATS.map((c, i) => `
+    <a class="cat" href="explore.html?cat=${encodeURIComponent(c[0])}">
+      <div class="stamp" style="--c:${STAMP_COLOURS[i % 4]}"><span>${c[1]}</span></div>
+      ${esc(c[0])}
+    </a>`).join("");
+
+  const box = document.getElementById("featured");
+  const [res, wish] = await Promise.all([
+    sb.from("activities").select("*").eq("is_featured", true)
+      .order("rating", { ascending: false }).limit(8),
+    getWishlist()
+  ]);
+  if (res.error) {
+    box.innerHTML = `<p class="empty">Experiences could not load. Check the details in config.js. (${esc(res.error.message)})</p>`;
+  } else if (!res.data.length) {
+    box.innerHTML = `<p class="empty">No experiences yet. Run the demo data in Supabase to fill this section.</p>`;
+  } else {
+    box.innerHTML = res.data.map(a => card(a, wish)).join("");
+  }
+})();
+</script>
+</body>
+</html>
