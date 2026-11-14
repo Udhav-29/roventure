@@ -7,15 +7,80 @@
   <meta name="description" content="Book timed slots for adventure sports, museums, theme parks, spa therapies and farm tours across India. Licensed operators, certified staff and insurance on every booking.">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
+
+<div class="loader" aria-hidden="true"><b>
+  <i style="--i:0">R</i><i style="--i:1">O</i><i style="--i:2">V</i><i style="--i:3">E</i><i style="--i:4">N</i><i style="--i:5">T</i><i style="--i:6">U</i><i style="--i:7">R</i><i style="--i:8">E</i>
+</b></div>
+<div class="progress" aria-hidden="true"></div>
+
 <main>
+  <!-- HERO: animated sunrise scene -->
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <h1>Book the hour.<br>Skip the queue.</h1>
-        <p class="lead">Pick an experience anywhere in India, choose your arrival window, and walk
-          straight in. Every operator is licensed, every guide is certified, and insurance is part
-          of every booking.</p>
+    <svg class="scene" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0d1f17"/><stop offset=".5" stop-color="#2d4a2c"/>
+          <stop offset=".78" stop-color="#c9a85c"/><stop offset="1" stop-color="#ef8a4c"/>
+        </linearGradient>
+      </defs>
+      <rect x="-120" width="1680" height="900" fill="url(#sky)"/>
+
+      <g fill="#f3f1dc">
+        <circle class="star" style="--i:1" cx="140" cy="90" r="2"/><circle class="star" style="--i:2" cx="380" cy="150" r="1.6"/>
+        <circle class="star" style="--i:3" cx="610" cy="60" r="2.2"/><circle class="star" style="--i:4" cx="860" cy="130" r="1.5"/>
+        <circle class="star" style="--i:5" cx="1010" cy="70" r="2"/><circle class="star" style="--i:6" cx="1290" cy="110" r="1.8"/>
+        <circle class="star" style="--i:7" cx="1180" cy="200" r="1.4"/><circle class="star" style="--i:8" cx="250" cy="230" r="1.5"/>
+      </g>
+
+      <g data-depth="0.01"><g class="sun">
+        <circle cx="1080" cy="520" r="190" fill="#f6d78b" opacity=".22"/>
+        <circle cx="1080" cy="520" r="105" fill="#f6d78b"/>
+      </g></g>
+
+      <g data-depth="0.02" fill="#f3f1dc" opacity=".55">
+        <g class="cloud" style="--t:80s;--o:-20s"><ellipse cx="0" cy="210" rx="110" ry="26"/><ellipse cx="60" cy="192" rx="70" ry="24"/></g>
+        <g class="cloud" style="--t:110s;--o:-70s"><ellipse cx="0" cy="320" rx="150" ry="30"/><ellipse cx="-70" cy="302" rx="80" ry="24"/></g>
+        <g class="cloud" style="--t:95s;--o:-45s"><ellipse cx="0" cy="130" rx="90" ry="20"/></g>
+      </g>
+
+      <g data-depth="0.03">
+        <path d="M-120 620 L80 470 L230 560 L420 400 L610 570 L800 430 L1000 580 L1180 450 L1380 590 L1560 500 V900 H-120Z" fill="#5f8247"/>
+        <path d="M420 400 L468 442 L420 432 L384 446Z M800 430 L842 468 L800 458 L766 470Z M1180 450 L1222 486 L1180 478 L1146 490Z" fill="#f3f1dc" opacity=".85"/>
+      </g>
+
+      <g data-depth="0.045"><g transform="translate(1250 250)"><g class="balloon">
+        <path d="M0 -70 C45 -70 62 -30 50 5 C42 28 22 45 12 62 H-12 C-22 45 -42 28 -50 5 C-62 -30 -45 -70 0 -70Z" fill="#ef5b4c"/>
+        <path d="M0 -70 C18 -40 18 30 6 62 H-6 C-18 30 -18 -40 0 -70Z" fill="#f3f1dc"/>
+        <path d="M-10 62 L-8 74 M10 62 L8 74" stroke="#7a5a2b" stroke-width="2"/>
+        <rect x="-10" y="74" width="20" height="14" rx="3" fill="#7a5a2b"/>
+      </g></g></g>
+
+      <g data-depth="0.06">
+        <path d="M-120 700 L120 570 L320 670 L540 530 L760 680 L980 570 L1190 690 L1360 610 L1560 680 V900 H-120Z" fill="#3f6233"/>
+      </g>
+
+      <g data-depth="0.075"><g class="glider">
+        <path d="M-60 0 Q0 -46 60 0 Q0 -22 -60 0Z" fill="#17a999"/>
+        <path d="M-50 -4 L0 60 M50 -4 L0 60 M0 -22 L0 60" stroke="#f3f1dc" stroke-width="1.5" fill="none"/>
+        <circle cx="0" cy="66" r="7" fill="#f3f1dc"/>
+      </g></g>
+
+      <g data-depth="0.1">
+        <line x1="680" y1="700" x2="1460" y2="606" stroke="#f3f1dc" stroke-width="2" opacity=".7"/>
+        <g class="zip"><line x1="0" y1="0" x2="0" y2="12" stroke="#f3f1dc" stroke-width="2"/><circle cx="0" cy="18" r="7" fill="#e0bb6f"/></g>
+        <path d="M-120 780 Q200 660 460 740 T900 730 T1560 700 V900 H-120Z" fill="#14271a"/>
+      </g>
+    </svg>
+
+    <div class="wrap hero-copy" id="heroCopy">
+      <h1 aria-label="Don't just visit India. Live it.">
+        <span class="line"><span>Don't just visit</span></span>
+        <span class="line"><span>India. <em class="rot" id="rot">Fly</em> it.</span></span>
+      </h1>
+      <div class="fade-up">
+        <p class="lead">Book a timed slot for any experience in India and walk straight in.
+          Licensed operators, certified guides and insurance on every booking.</p>
         <form class="search" action="explore.html">
           <input name="q" placeholder="Try kayaking, museum or Jaipur" aria-label="Search experiences">
           <select name="cat" id="heroCat" aria-label="Category">
@@ -24,36 +89,84 @@
           <button class="btn gold">Find experiences</button>
         </form>
       </div>
-      <aside class="ticket" aria-label="Example of a booking">
-        <div class="t-main">
-          <p class="t-small">Example booking</p>
-          <p class="t-title">Backwater kayaking at dawn</p>
-          <p>Alappuzha, Kerala</p>
-          <p class="t-win">Arrive any time between <b>6:30 and 7:30 AM</b></p>
+    </div>
+    <a class="scroll-cue fade-up" href="#demo">Scroll ↓</a>
+  </section>
+
+  <!-- GIANT SCROLLING WORDS -->
+  <div class="marquee" aria-hidden="true">
+    <div class="mq" id="mq1"></div>
+    <div class="mq rev" id="mq2"></div>
+  </div>
+
+  <!-- INTERACTIVE TICKET -->
+  <section class="section demo" id="demo">
+    <div class="wrap two">
+      <div>
+        <h2 class="reveal">Pick a window. Watch the queue disappear.</h2>
+        <p class="lead reveal">Try it here. Choose an experience and an arrival window, and see the
+          ticket you would get.</p>
+        <p class="chip-label">Experience</p>
+        <div class="chips" id="demoActs"></div>
+        <p class="chip-label">Arrival window</p>
+        <div class="chips" id="demoSlots"></div>
+        <a class="btn gold" href="explore.html">Book a real one</a>
+      </div>
+      <div class="ticket-stage">
+        <div class="ticket" id="ticket" aria-live="polite">
+          <div class="t-main">
+            <p class="t-small">Your ticket</p>
+            <p class="t-title" id="tTitle"></p>
+            <p id="tPlace"></p>
+            <p class="t-win">Arrive any time between <b id="tWin"></b></p>
+            <p class="t-total">Per person, with ₹29 insurance: <b id="tTotal"></b></p>
+          </div>
+          <div class="t-stub"><p>Wait</p><b>0</b><p>min</p></div>
+          <div class="ink" id="ink">Slot confirmed</div>
         </div>
-        <div class="t-stub"><p>Wait</p><b>0</b><p>min</p></div>
-      </aside>
+      </div>
     </div>
   </section>
 
+  <!-- CATEGORIES -->
   <section class="section">
     <div class="wrap">
-      <h2>What do you feel like doing?</h2>
+      <h2 class="reveal">What do you feel like doing?</h2>
       <div id="cats" class="cats"></div>
     </div>
   </section>
 
+  <!-- SIDEWAYS TERRAIN SCROLL -->
+  <section class="hpin" id="hpin">
+    <div class="hsticky">
+      <div class="wrap"><h2>One country. Every terrain.</h2></div>
+      <div class="htrack" id="htrack"></div>
+    </div>
+  </section>
+
+  <!-- POPULAR -->
   <section class="section tint">
     <div class="wrap">
-      <h2>Popular right now</h2>
+      <h2 class="reveal">Popular right now</h2>
       <div id="featured" class="grid"><p class="empty">Loading experiences…</p></div>
       <a class="btn alt" href="explore.html">See all experiences</a>
     </div>
   </section>
 
+  <!-- NUMBERS -->
   <section class="section">
+    <div class="wrap stats">
+      <div><b data-count="0" id="nExp">0</b><p>experiences to book</p></div>
+      <div><b data-count="0" id="nStates">0</b><p>states and union territories</p></div>
+      <div><b data-count="0">0</b><p>minutes of queueing</p></div>
+      <div><b>₹<span data-count="29">0</span></b><p>insurance per person</p></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section tint how">
     <div class="wrap two">
-      <div>
+      <div class="reveal">
         <h2>How a timed slot works</h2>
         <ol class="steps">
           <li><b>Choose your experience.</b> Filter by state, terrain, price or women instructors.</li>
@@ -62,7 +175,7 @@
           <li><b>Walk in any time inside it.</b> Show your booking code and start. No counter, no queue.</li>
         </ol>
       </div>
-      <div>
+      <div class="reveal">
         <h2>What every booking includes</h2>
         <ul class="ticks">
           <li>A licensed operator, checked by our team before listing</li>
@@ -76,9 +189,9 @@
 
   <section class="section band">
     <div class="wrap">
-      <h2>Run an activity, museum or tour?</h2>
+      <h2 class="reveal">Run an activity, museum or tour?</h2>
       <p>List it on Roventure and fill your quiet hours with visitors who have already booked.</p>
-      <a class="btn gold" href="partners.html">See how onboarding works</a>
+      <a class="btn" href="partners.html">See how onboarding works</a>
     </div>
   </section>
 </main>
@@ -86,23 +199,126 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 <script src="app.js"></script>
+<script src="fx.js"></script>
 <script>
 (async () => {
   await renderChrome();
 
+  // ----- rotating word in the headline -----
+  const VERBS = ["Fly", "Dive", "Paddle", "Taste", "Climb", "Ride", "Feel"];
+  const rot = document.getElementById("rot");
+  let vi = 0;
+  if (!REDUCED) setInterval(() => {
+    vi = (vi + 1) % VERBS.length;
+    rot.textContent = VERBS[vi];
+    rot.classList.remove("flip"); void rot.offsetWidth; rot.classList.add("flip");
+  }, 2200);
+
+  // ----- scene moves with the mouse and with scrolling -----
+  const layers = [...document.querySelectorAll(".scene [data-depth]")];
+  const copy = document.getElementById("heroCopy");
+  let mx = 0, my = 0;
+  function paint() {
+    const s = scrollY;
+    if (s > innerHeight * 1.2) return;
+    layers.forEach(l => {
+      const d = Number(l.dataset.depth);
+      l.style.transform = `translate(${-mx * d}px, ${-my * d * 0.5 + s * d * 2}px)`;
+    });
+    copy.style.transform = `translateY(${s * 0.25}px)`;
+    copy.style.opacity = Math.max(0, 1 - s / 520);
+  }
+  if (!REDUCED) {
+    addEventListener("mousemove", e => {
+      mx = e.clientX - innerWidth / 2; my = e.clientY - innerHeight / 2; paint();
+    });
+    addEventListener("scroll", paint, { passive: true });
+  }
+
+  // ----- giant scrolling words -----
+  const words1 = "Paragliding ✦ Scuba diving ✦ Museums ✦ Coffee estates ✦ Ziplines ✦ Safaris ✦ ";
+  const words2 = "Kayaking ✦ Spa therapy ✦ Theme parks ✦ Farm days ✦ Food walks ✦ Hot air balloons ✦ ";
+  document.getElementById("mq1").innerHTML = `<span>${words1}</span><span>${words1}</span>`;
+  document.getElementById("mq2").innerHTML = `<span>${words2}</span><span>${words2}</span>`;
+
+  // ----- interactive ticket -----
+  const DEMO = [
+    { t: "Backwater kayaking at dawn", p: "Alappuzha, Kerala", price: 1100,
+      slots: ["5:30 and 6:30 AM", "6:30 and 7:30 AM", "7:30 and 8:30 AM"] },
+    { t: "Tandem paragliding", p: "Bir Billing, Himachal Pradesh", price: 2800,
+      slots: ["9:00 and 10:00 AM", "11:00 AM and 12:00 PM", "2:00 and 3:00 PM"] },
+    { t: "National Museum entry", p: "New Delhi", price: 150,
+      slots: ["10:00 and 10:30 AM", "12:30 and 1:00 PM", "3:30 and 4:00 PM"] }
+  ];
+  let da = 0, ds = 1;
+  const ticket = document.getElementById("ticket"), ink = document.getElementById("ink");
+  function drawDemo(animate) {
+    const d = DEMO[da];
+    document.getElementById("demoActs").innerHTML = DEMO.map((x, i) =>
+      `<button class="chip ${i === da ? "on" : ""}" onclick="pickDemo(${i}, null)">${esc(x.t)}</button>`).join("");
+    document.getElementById("demoSlots").innerHTML = d.slots.map((x, i) =>
+      `<button class="chip ${i === ds ? "on" : ""}" onclick="pickDemo(null, ${i})">${esc(x.replace(" and ", " – "))}</button>`).join("");
+    document.getElementById("tTitle").textContent = d.t;
+    document.getElementById("tPlace").textContent = d.p;
+    document.getElementById("tWin").textContent = d.slots[ds];
+    document.getElementById("tTotal").textContent = inr(d.price + 29);
+    if (animate && !REDUCED) {
+      ticket.classList.remove("pop"); ink.classList.remove("slam");
+      void ticket.offsetWidth;
+      ticket.classList.add("pop"); ink.classList.add("slam");
+    }
+  }
+  window.pickDemo = (a, s) => {
+    if (a !== null) { da = a; ds = 0; }
+    if (s !== null) ds = s;
+    drawDemo(true);
+  };
+  drawDemo(false);
+
+  // ----- categories -----
+  const COLOURS = ["var(--coral)", "var(--teal)", "var(--gold)", "#8fb56f"];
   document.getElementById("heroCat").insertAdjacentHTML("beforeend",
     CATS.map(c => `<option>${esc(c[0])}</option>`).join(""));
-
   document.getElementById("cats").innerHTML = CATS.map((c, i) => `
-    <a class="cat" href="explore.html?cat=${encodeURIComponent(c[0])}">
-      <div class="stamp" style="--c:${STAMP_COLOURS[i % 4]}"><span>${c[1]}</span></div>
-      ${esc(c[0])}
+    <a class="cat" style="--c:${COLOURS[i % 4]}" href="explore.html?cat=${encodeURIComponent(c[0])}">
+      <div class="stamp"><span>${c[1]}</span></div><span>${esc(c[0])}</span>
     </a>`).join("");
 
+  // ----- sideways terrain scroll -----
+  const TERRAINS = [
+    ["Air", "🪂", "#6fd0c5", "Paragliding, balloons and parasailing"],
+    ["Water", "🌊", "#7fb9e6", "Kayaks, shikaras, rafts and reefs"],
+    ["Snow", "⛷️", "#e8eef2", "Ski lessons and high-altitude lakes"],
+    ["Desert", "🐪", "#e0bb6f", "Dunes, forts and camel rides"],
+    ["Forest", "🐅", "#8fb56f", "Safaris, caves and forest spas"],
+    ["Mountain", "🧗", "#f08a7e", "Bouldering, tea gardens and sound baths"],
+    ["Coast", "🏄", "#f6d78b", "Surf lessons and water parks"],
+    ["City", "🏛️", "#d9c8f0", "Museums, food walks and studio tours"],
+    ["Countryside", "☕", "#c9d99a", "Coffee estates, farms and weaving villages"]
+  ];
+  const pin = document.getElementById("hpin"), track = document.getElementById("htrack");
+  track.innerHTML = TERRAINS.map((t, i) => `
+    <a class="panel" style="--c:${t[2]};--i:${i}" href="explore.html?terrain=${encodeURIComponent(t[0])}">
+      <span class="big">${t[1]}</span><h3>${t[0]}</h3><p>${t[3]}</p>
+    </a>`).join("");
+  function hscroll() {
+    const total = pin.offsetHeight - innerHeight;
+    const p = Math.min(1, Math.max(0, -pin.getBoundingClientRect().top / total));
+    const max = Math.max(0, track.scrollWidth - innerWidth);
+    track.style.transform = `translate3d(${-p * max}px, 0, 0)`;
+  }
+  if (!REDUCED) {
+    addEventListener("scroll", hscroll, { passive: true });
+    addEventListener("resize", hscroll);
+    hscroll();
+  }
+
+  // ----- popular experiences and live numbers -----
   const box = document.getElementById("featured");
-  const [res, wish] = await Promise.all([
+  const [res, all, wish] = await Promise.all([
     sb.from("activities").select("*").eq("is_featured", true)
       .order("rating", { ascending: false }).limit(8),
+    sb.from("activities").select("state"),
     getWishlist()
   ]);
   if (res.error) {
@@ -112,6 +328,12 @@
   } else {
     box.innerHTML = res.data.map(a => card(a, wish)).join("");
   }
+  if (all.data) {
+    document.getElementById("nExp").dataset.count = all.data.length;
+    document.getElementById("nStates").dataset.count = new Set(all.data.map(r => r.state)).size;
+  }
+
+  initFX();
 })();
 </script>
 </body>
